@@ -4,25 +4,25 @@ d3.csv('../data/squirrelActivities.csv', d3.autoType)
 
 //constants
 const width = window.innerWidth*.8;
-const height =  window.innerHeight/3;
-const margins = { top: 10, bottom: 25, left: 10, right: 10}
+const height =  window.innerHeight*.75;
+const margins = { top: 15, bottom: 15, left: 60, right: 60}
+const color = d3.scaleSequential()
+    .domain([0, d3.max(data, d => d.count)])
+    .interpolator(d3.interpolateBlues)
+
 //1.15
     
 //SCALES
-//xscale - categorical, activity
-const xScale = d3.scaleBand()
-    .domain(data.map(d=> d.activity)) // get all the activity values
-    .range([margins.left, width-margins.right])
-    .paddingInner(.2)
-//yscale - linear, count
-const yScale = d3.scaleLinear()
+//xscale - linear, count
+const xScale = d3.scaleLinear()
     .domain([0, d3.max(data,d=> d.count)])
-    .range([height-margins.bottom, margins.top])
-//color
-let colors = d3.scaleSequential()
-    .domain([0,d3.max(data,d=> d.count)])
-    .range(d3.schemeBlues)
-    .interpolator(d3.interpolatorBlues)
+    .range([0, width-margins.right])
+//yscale - categorical, activity
+const yScale = d3.scaleBand()
+.domain(data.map(d=> d.activity)) // get all the activity values
+.range([height-margins.bottom,margins.top])
+.paddingInner(.2)
+
 //svg
 const svg = d3.select("#barchart")
     .append("svg")
@@ -33,31 +33,31 @@ const svg = d3.select("#barchart")
 svg.selectAll("rect")
     .data(data)
     .join("rect")
-    .attr("width",xScale.bandwidth())
-    .attr("height",d=>height-margins.bottom-yScale(d.count))
-    .attr("fill", "orange")
-    .attr("x",d=>xScale(d.activity))
-    .attr("y",d=>yScale(d.count))
-
-//bottom text
+    .attr("width",d=> xScale(d.count)-margins.right)
+    .attr("height",yScale.bandwidth())
+    .attr("fill", d=>color(d.count))
+    .attr("x",margins.right)
+    .attr("y",d=>yScale(d.activity))
+ 
+//left text
 svg.selectAll("text.activity")
     .data(data)
     .join("text")
     .attr("class",'activity')
-    .attr("x",d=> xScale(d.activity)+(xScale.bandwidth()/2))
-    .attr("y",height-margins.bottom)
-    .attr("dy","1em")
-    .attr("text-anchor", 'middle')
+    .attr("y",d=> yScale(d.activity)+(yScale.bandwidth()/2))
+    .attr("x",0,d=> xScale(d.count))
+    .attr("dx",".1em")
+    .attr("text-anchor",'left')
     .text(d=> d.activity)
 
-//top text
+//right text
 svg.selectAll("text.count")
     .data(data)
     .join("text")
     .attr("class",'count')
-    .attr("x", d => xScale(d.activity)+(xScale.bandwidth()/2))
-    .attr("y",d=> yScale(d.count))
-    .attr("dy","1em")
+    .attr("y",d => yScale(d.activity)+(yScale.bandwidth()/2))
+    .attr("x",d=> xScale(d.count))
+    .attr("dx","1.2em")
     .attr("text-anchor",'middle')
-    .text(d=> d3.format(",")(d.count))
+    .text(d => d3.format(",")(d.count))
 })
