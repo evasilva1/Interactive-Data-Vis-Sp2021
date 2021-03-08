@@ -20,13 +20,14 @@ let state = {
 /* LOAD DATA */
 d3.csv("../data/Energy_Efficiency_Projects.csv", d3.autoType).then(raw_data => {
   // + SET YOUR DATA PATH
-  console.log("raw_data", raw_data);
+  console.log("data", raw_data);
+  // save our data to application state
   state.data = raw_data;
   init();
 });
 
 /* INITIALIZING FUNCTION */
-// this will be run *one time* when the data finishes loading in 
+// this will be run *one time* when the data finishes loading in
 function init() {
   // + SCALES
     xScale = d3.scaleLinear()
@@ -106,7 +107,7 @@ dropdown.on("change", event=>{
 }
 
 /* DRAW FUNCTION */
- // we call this everytime there is an update to the data/state
+// we call this everytime there is an update to the data/state
 function draw() {
   console.log("in the drawing function")
 

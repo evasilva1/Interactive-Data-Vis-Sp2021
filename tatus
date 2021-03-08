@@ -1,0 +1,103 @@
+[33mcommit 676ca2615aeb48dcfc335b65e60dc0164cf90868[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 28 20:41:44 2021 -0500
+
+    uploading data
+
+[33mcommit 988bb58fa346dd1e3a2a4e06691285b57c140761[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 21 23:03:32 2021 -0500
+
+    horizontal bar chart upload
+
+[33mcommit 333659678cb2c8cf68930a02e633b90958d9aaa1[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 21 20:43:48 2021 -0500
+
+    completed vertical bar chart
+
+[33mcommit cb3de6c3d2c7b5f2fe93043160cce854709c9a02[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 21 19:42:58 2021 -0500
+
+    uploading bars
+
+[33mcommit 11003416362182c90dce71a39558d7581757d784[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 21 19:22:36 2021 -0500
+
+    load data and draw svg
+
+[33mcommit 8560d279a39798c6dfac6dbdc90b2dc8e8dc3961[m
+Merge: de62bdb f707757
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 21 11:37:07 2021 -0500
+
+    Merge remote-tracking branch 'upstream/main'
+
+[33mcommit f707757a5b0d3ac38403aa2d0cce16ce27cd3510[m
+Author: auchers <aucher@two-n.com>
+Date:   Mon Feb 8 11:41:10 2021 -0500
+
+    ˝update readmes
+
+[33mcommit f95f5f2d194a6f292d41f984e7c4087fb1a8314f[m
+Author: auchers <aucher@two-n.com>
+Date:   Mon Feb 8 11:24:09 2021 -0500
+
+    fix intro readme
+
+[33mcommit de62bdb042a63d42cd8098368389d02db2570aad[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 7 22:57:14 2021 -0500
+
+    committing the notes.md with issues i had
+
+[33mcommit 942bebcf0b548e5d9b86bb1ce7637c4ebbf59ff2[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 7 22:47:08 2021 -0500
+
+    changes main.js file to include two console logs
+
+[33mcommit 17d809dbaff8ec76c95e02f7bed8470ec1faa7ed[m
+Merge: 71dbf12 2948272
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 7 22:34:58 2021 -0500
+
+    Merge remote-tracking branch 'upstream/main'
+
+[33mcommit 71dbf12704fe855a067ef2d2af37c8ff17d9f8bd[m
+Author: evasilva1 <60716332+evasilva1@users.noreply.github.com>
+Date:   Sun Feb 7 22:05:12 2021 -0500
+
+    Update text in html body
+
+[33mcommit 294827288891872ccc460c0a17c5e01a216d66eb[m
+Author: auchers <aucher.serr@gmail.com>
+Date:   Mon Feb 1 21:05:43 2021 -0500
+
+    update paths
+
+[33mcommit 7adf099258de5fc82ee7424f5da5ef1014ed1d4b[m
+Author: auchers <aucher@two-n.com>
+Date:   Mon Feb 1 16:48:02 2021 -0500
+
+    update notes text
+
+[33mcommit 47d37b71b0ac785ea2a2218ca574d0ed889a662c[m
+Author: auchers <aucher@two-n.com>
+Date:   Mon Feb 1 16:17:27 2021 -0500
+
+    update title
+
+[33mcommit deb39047c1c13d0f89b7ac33aa915b8c27385fff[m
+Author: auchers <aucher@two-n.com>
+Date:   Mon Feb 1 09:23:52 2021 -0500
+
+    create intitial file structure
+
+[33mcommit b34faceac043d4d8d489d96af14b212a8ce204f2[m
+Author: auchers <7200630+auchers@users.noreply.github.com>
+Date:   Mon Feb 1 08:40:37 2021 -0500
+
+    Initial commit
