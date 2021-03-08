@@ -120,41 +120,40 @@ function draw() {
     .data(filteredData, d => d.ID)
     .join(
       enter => enter.append("circle")
-       .attr("r",radius*1.5)
-       .attr("fill", d => colorScale(d.Borough))
-       // set attr before
-       .attr("cx", 0)
-       // start transition
-       .attr("cy", d => yScale(d.CO2e_Calculated_MT))
-       .call(enter=> enter.transition()
-     //.ease(d3.easeLinear)
-        .duration(1000))
-       // set end attr
-        .attr("cx", d => xScale(d.NumberOfDays))
-      //.attr("cy", d => yScale(d.CO2e_Calculated_MT))
-        ),
+        .attr("r",radius*1.5)
+        .attr("fill", d => colorScale(d.Borough))
+        .style("stroke-opacity",.50)
+        .style("stroke","#ffffff")
+        .attr("cy",margin.top)
+        .attr("cx", d=> xScale(d.NumberOfDays))
+        .call(enter => enter
+          .transition()
+          .ease(d3.easeCircleIn)
+          .duration(1000)
+          .attr("cy", d => yScale(d.CO2e_Calculated_MT))
+          ),
 
       update => update
         .call(sel => sel
           .transition()
-          .duration(500)
-          .attr("r", radius*1.5)
+          .duration(250)
+          .attr("r",radius*2.5)
           .transition()
           .duration(500)
           .attr("r",radius)
           ),
+
       exit => exit
-       .call(sel => sel
-          .attr("opacity", 1)
-          .transition()
-          .duration(1000)
-          //.attr("cy", height)
-          .attr("opacity",0)
-          .remove()
-         )
-    
-      
-      //.attr("cx", d => xScale(d.NumberOfDays))
-       
+        .attr("cy", d => yScale(d.CO2e_Calculated_MT))
+        .attr("cx", d => xScale(d.NumberOfDays))
+          .call(exit => exit
+            .transition()
+            .style("opacity", .25)
+            .duration(1000)
+            .attr("cx", margin.left)
+            .attr("cy", height-margin.bottom)
+            .remove()
+            )
+        );
 
 }
