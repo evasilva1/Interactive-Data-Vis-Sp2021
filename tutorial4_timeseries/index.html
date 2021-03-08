@@ -5,10 +5,21 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    Welcome to Interactive Data Visualization Tutorials
-    <label for="dropdown">Filter Selection</label>
+    <h2>NYC DOB Permits Issued</h2>
+    <h4>DM, NB & Alt-1 Permits Issued from 2008 to 2021</h4>
+    Every year the Department of Buildings issues thousands of construction permits.
+    Permits used in this analysis are as follows:  
+    <p>DM - Demolition Permits, NB - New Building Permits & Alt-1 - Alteration 1 Permits</p>
+    <h5><p>Each of these permits allows for certain types of construction to occur: DM allows the full
+      demolition of a building, NB allows the construction of a new building and 
+      Alt-1 allows the change of egress and/or occupancy of an existing building. Of course these
+      types of construction must meet the NYC Construction Code requirements.
+    </p></h5>
+    <label for="dropdown">Select Permit Type</label>
     <select id="dropdown" name="dropdown"></select>
+    <div id="d3-container"> </div>
     <script src="../lib/d3.js"></script>
     <script src="main.js"></script>
   </body>
+  <h6>Data Provided by NYC OpenData 'DOB Permit Issuance' </h6>
 </html>
