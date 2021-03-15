@@ -81,7 +81,7 @@ function init() {
     .attr("fill", d=> {
       if (d.Change > 0) return "#E60026";
       else if (d.Change === 0) return "#FFF880"
-      else return "blue"
+      else return "blue" //not sure why it's black on deployed
     })
     .attr("fill-opacity", 0.5)
     .attr("transform",d =>{
