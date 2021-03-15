@@ -16,7 +16,7 @@ let svg;
 let state = {
   // + SET UP STATE
   geojson: null,
-  permit: null,
+  otherData: null,
   hover: {
     stateName: null,
     tempChange: null,
@@ -71,9 +71,9 @@ function init() {
     .attr("opacity",".5")
     .attr("d",pathFunction)
 
-
+  // wanted to work on changing opacity of hover
   // + POINTS
-  svg.selectAll("circle.point")
+  svg.selectAll("circle")
     .data(state.temp)
     .join("circle")
     .attr("r", 4)
@@ -81,17 +81,19 @@ function init() {
     .attr("fill", d=> {
       if (d.Change > 0) return "#E60026";
       else if (d.Change === 0) return "#FFF880"
-      else return "005AD9"
+      else return "blue"
     })
     .attr("fill-opacity", 0.5)
     .attr("transform",d =>{
+      //console.log(d)
       const [x,y] = projection([d.Long,d.Lat])
       return `translate(${x},${y})`
     })
-    .on("mousemove", function(event, d){
+    .on("mouseover", function(event, d){
       d3.select(this).transition()
         .duration("50")
         .attr("stroke","black")
+        .attr("opacity", 1)
         .attr("r",16)
       const {clientX, clientY} = event
       const [long, lat] = projection.invert([clientX, clientY])
