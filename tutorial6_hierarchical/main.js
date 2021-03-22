@@ -30,7 +30,7 @@ d3.json("../data/flare.json", d3.autotype).then(data => {
  * this will be run *one time* when the data finishes loading in
  * */
 function init() {
-  //console.log(state.data)
+  console.log(state.data)
 
   const colorScale = d3.scaleOrdinal(d3.schemePaired)
 
