@@ -13,8 +13,8 @@ let tooltip;
  * */
 let state = {
   // + INITIALIZE STATE
-  data: null,
-  hover: null
+  //data: null,
+  //hover: null
 };
 
 /**
@@ -39,7 +39,9 @@ function init() {
   svg = container
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("viewBox", [0,0,width,height]);
+
 
   // + INITIALIZE TOOLTIP IN YOUR CONTAINER ELEMENT
   tooltip = container
@@ -69,14 +71,14 @@ function init() {
   const leaves = root.leaves()
 
   // + CREATE YOUR GRAPHICAL ELEMENTS
-  const leafGroups = svg.selectAll("g")
+  const leafGroup = svg.selectAll("g")
       .data(leaves)
       .join("g")
       //.attr("class", "leaf")
-      .attr("transform", d => `translate(${d.x+1},${d.y0+1)`)
+      .attr("transform", d => `translate(${d.x+1},${d.y+1})`)
   
   // + DRAW LEAVES RECT
-  leafGroups.append("circle")
+  leafGroup.append("circle")
       //.attr("width", d => d.x1 - d.x0)
       //.attr("height", d => d.y1 - d.y0)
       .attr("fill", d => {
@@ -85,32 +87,26 @@ function init() {
         return colorScale(level1Ancestor.data.name)
       })
       .attr("stroke","black")
-      .attr("height", d => d.x)
-      .attr("width", d => d.y)
+      .attr("height", d => d.x+30)
+      .attr("width", d => d.y+30)
       .attr("r", d => d.r)
   
-  leafGroups.on("text")
+  leafGroup.append("text")
       .text(d => d.data.name)
 
 
   // + ADD MOUSEOVER
-  leafGroups 
+  leafGroup 
       .on("mouseenter", (event, d) => {
-        state.hover = {
-          position: [d.x0, d.y0],
-          name: d.date.name,
-          value: d.data.value,
-          ancestorsPath: d.ancestors()
-            .reverse()
-            .map(d => d.data.name)
-            .join("/")
-        }
+        state.hoverleaf = d.data.name
+        state.hoverPositionX = d.x
+        state.hoverPositionY = d.y
         draw()
       })
-      .on("mouseleave", () => {
-        state.hover = null
-        draw();
-      })
+      //.on("mouseleave", () => {
+      //  state.hover = null
+      //  draw();
+      //})
 
   draw(); // calls the draw function
 }
@@ -121,17 +117,9 @@ function init() {
  * */
 function draw() {
   // + UPDATE TOOLTIP
-  if (state.hover) {
-    tooltip
-    .html(
-      `
-      <div>Name: ${state.hover.name}</div>
-      <div>Value: ${state.hover.value}</div>
-      <div>Hierarchy Path: ${state.hover.ancestorsPath}</div>
-      `
-    ).transition()
-    .duration(600)
-    .style("transform", `translate(${state.hover.position[0]}px, ${state.hover.position[1]}px)`)
-  }
-    tooltip.classed("visible", state.hover)
+  tooltip
+    .style("transform", `translate(${state.hoverPositionX}px, ${state.hoverPositionY}px)`)
+    .html(`
+      <div>${state.hoverLeaf}</div>
+    `)
 }
