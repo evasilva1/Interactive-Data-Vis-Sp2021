@@ -75,7 +75,7 @@ function init() {
       .data(leaves)
       .join("g")
       //.attr("class", "leaf")
-      .attr("transform", d => `translate(${d.x+1},${d.y+1})`)
+      .attr("transform", d => `translate(${d.x},${d.y})`)
   
   // + DRAW LEAVES RECT
   leafGroup.append("circle")
@@ -87,8 +87,8 @@ function init() {
         return colorScale(level1Ancestor.data.name)
       })
       .attr("stroke","black")
-      .attr("height", d => d.x+30)
-      .attr("width", d => d.y+30)
+      .attr("height", d => d.x)
+      .attr("width", d => d.y)
       .attr("r", d => d.r)
   
   leafGroup.append("text")
@@ -116,10 +116,10 @@ function init() {
  * we call this everytime there is an update to the data/state
  * */
 function draw() {
-  // + UPDATE TOOLTIP
+  // + UPDATE TOOLTIP //working on getting the hover to work
   tooltip
     .style("transform", `translate(${state.hoverPositionX}px, ${state.hoverPositionY}px)`)
     .html(`
-      <div>${state.hoverLeaf}</div>
+      <div></div>
     `)
 }
