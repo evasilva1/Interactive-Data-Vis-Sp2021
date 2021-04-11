@@ -1,0 +1,141 @@
+body {
+    /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
+    font-family: 'Lato', sans-serif;
+    padding: 1em 3em;
+  }
+  
+  #dashboard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr, 1fr, 1fr, 1fr, 2fr, 2fr;
+    column-gap: 1em;
+    row-gap: 1em;
+    border: 5px solid palevioletred;
+  }
+  
+  #introduction {
+    padding-top: 1em;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 3px solid blue;
+  }
+  
+  #map{
+    padding-top: 1em;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 3px solid green;
+  }
+
+  #summary{
+    padding-top: 1em;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 3px solid green;
+  }
+  
+  #bsummary{
+    padding-top: 1em;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 3px solid violet;
+  }
+
+  #barchart{
+    padding-top: 1em;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 3px solid violet;
+  }
+
+  #timeline{
+    padding-top: 1em;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 3px solid purple;
+  }
+
+  #tsummary{
+    padding-top: 1em;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 3px solid purple;
+  }
+
+  #map2{
+    padding-top: 1em;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 3px solid red;
+  }
+
+  #conclusion{
+    padding-top: 1em;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 3px solid orange;
+  }
+
+
+  /* Table styles */
+  thead,
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-bottom: 1px solid white;
+  }
+  
+  tbody {
+    width: 100%;
+    display: block;
+    height: 70vh;
+    overflow: scroll;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 0.5em;
+    cursor: pointer;
+    font-weight: lighter;
+    text-transform: capitalize;
+  }
+  
+  tr:hover {
+    font-weight: 900;
+  }
+  
+  /* Count styles */
+  #count {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .metric {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .metric > .number {
+    color: #ccc;
+    font-size: 25px;
+  }

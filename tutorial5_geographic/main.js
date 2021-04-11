@@ -86,6 +86,7 @@ function init() {
     .attr("fill-opacity", 0.5)
     .attr("transform",d =>{
       //console.log(d)
+      
       const [x,y] = projection([d.Long,d.Lat])
       return `translate(${x},${y})`
     })
