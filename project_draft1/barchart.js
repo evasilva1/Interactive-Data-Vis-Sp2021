@@ -8,7 +8,7 @@ const width = d3.select('#barchart').node().getBoundingClientRect().width;
 console.log("width",width);
 const height = d3.select('#barchart').node().getBoundingClientRect().height;
 console.log("height",height);
-margin = {top: 40, right:30, bottom:50, left:30}
+margin = {top: 40, right:20, bottom:60, left:60}
 
 //const nest = d3.rollup(data, v => v.length, d => d.Boro)
 //console.log("nest",nest);
@@ -22,15 +22,18 @@ const xScale = d3.scaleBand()     /* Need to figure out how to make it read 4 la
 
 // yscale - linear, count
 const yScale = d3.scaleLinear()
-    .domain([d3.min(data, d => d.OLT), d3.max(data, d => d.OLT)])
+    .domain([0, d3.max(data, d => d.OLT)])
     .range([height - margin.bottom, margin.top])
+
+// color
+colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
 // SVG
 const svg = d3.select("#barchart")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
-    .style('background-color', 'lightgrey');
+    .style('background-color', 'lightgrey'); //'lightgrey'
 
 // BARS
 svg.selectAll("rect")
@@ -40,7 +43,7 @@ svg.selectAll("rect")
     .attr("height", d => height - margin.bottom - yScale(d.OLT))
     .attr("x", d=> xScale(d.BOROUGH))
     .attr("y", d=> yScale(d.OLT))
-    .attr("fill","blue")
+    .attr("fill",d => colorScale(d.BOROUGH))
     //.attr('x', (d,i) => i*(width/data.length))
     //.attr('y', (d) => height-d*(height/100))
     //.attr('width', 0.8*(width/data.length))
@@ -64,19 +67,24 @@ const yAxisGroup = svg.append("g")
 // add labels - xAxis
 xAxisGroup.append("text")
 .attr("class", 'axis-title')
-.attr("x", width / 2)
-.attr("y", 40)
+.attr("x", (width/2))
+.attr("y", 50)
 .attr("text-anchor", "middle")
+//.style("font-size", "14px")
+.style("fill", "black")
 .text("Borough")
 
 // add labels - yAxis
 yAxisGroup.append("text")
 .attr("class", 'axis-title')
-.attr("x", -40)
+.attr("x", -50)
 .attr("y", height / 2)
 .attr("writing-mode", "vertical-lr")
 .attr("text-anchor", "middle")
-.text("Environmental Score 2020")
+.style("fill", "black")
+.text("Total Number of OLTs")
+
+// Count to bars
 
 // Titles
 svg.append("text")
@@ -86,7 +94,4 @@ svg.append("text")
     .style("font-size", "16px")
     .style("font-weight", "bold")
     .text("Old Law Tenements by Borough")
-
-
-
 })

@@ -7,9 +7,10 @@ body {
   #dashboard {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2fr, 1fr, 1fr, 1fr, 2fr, 2fr;
+    grid-template-rows: 2fr, 1fr, 1fr, 1fr, 2fr /*, 2fr*/;
     column-gap: 1em;
     row-gap: 1em;
+    border: 3px solid pink;
   }
   
   #introduction {
@@ -40,7 +41,7 @@ body {
   }
   
   #bsummary{
-    padding-top: 1em;
+    /* padding-top: 1em; */
     grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 1;
@@ -49,26 +50,26 @@ body {
   }
 
   #barchart{
-    padding-top: 1em;
+    /* padding-top: 1em; */
     grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 2;
     grid-column-end: 3;
-    width:100%;
-    border: 3px solid violet;
+    width: 100%;
+    /* border: 3px solid violet; */
   }
 
   #timeline{
-    padding-top: 1em;
+    /* padding-top: 1em; */
     grid-row-start: 4;
     grid-row-end: 5;
     grid-column-start: 1;
     grid-column-end: 2;
-    border: 3px solid purple;
+    /* border: 3px solid purple; */
   }
 
   #tsummary{
-    padding-top: 1em;
+    /* padding-top: 1em; */
     grid-row-start: 4;
     grid-row-end: 5;
     grid-column-start: 2;
@@ -76,19 +77,19 @@ body {
     border: 3px solid purple;
   }
 
-  #map2{
+  /* #map2{
     padding-top: 1em;
     grid-row-start: 5;
     grid-row-end: 6;
     grid-column-start: 1;
     grid-column-end: 3;
     border: 3px solid red;
-  }
+  } */ /*removed this div bc project 2*/
 
   #conclusion{
-    padding-top: 1em;
-    grid-row-start: 6;
-    grid-row-end: 7;
+    /*padding-top: 1em;*/
+    grid-row-start: 5; /* prev 6*/
+    grid-row-end: 6; /* prev 7*/
     grid-column-start: 1;
     grid-column-end: 3;
     border: 3px solid orange;
