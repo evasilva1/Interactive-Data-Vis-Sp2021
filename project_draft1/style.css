@@ -7,14 +7,14 @@ body {
   #dashboard {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2fr, 1fr, 1fr, 1fr, 2fr /*, 2fr*/;
+    grid-template-rows: 1em, 2em, 2em, 2em, 1em /*, 2fr*/;
     column-gap: 1em;
     row-gap: 1em;
     border: 3px solid pink;
   }
   
   #introduction {
-    padding-top: 1em;
+    /* padding-top: 1em; */
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 1;
@@ -22,7 +22,7 @@ body {
     border: 3px solid blue;
   }
   
-  #map{
+  #summary{
     padding-top: 1em;
     grid-row-start: 2;
     grid-row-end: 3;
@@ -31,8 +31,8 @@ body {
     border: 3px solid green;
   }
 
-  #summary{
-    padding-top: 1em;
+  #map{
+    /* padding-top: 1em; */
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
@@ -59,7 +59,7 @@ body {
     /* border: 3px solid violet; */
   }
 
-  #timeline{
+  #tsummary{
     /* padding-top: 1em; */
     grid-row-start: 4;
     grid-row-end: 5;
@@ -68,7 +68,7 @@ body {
     /* border: 3px solid purple; */
   }
 
-  #tsummary{
+  #timeline{
     /* padding-top: 1em; */
     grid-row-start: 4;
     grid-row-end: 5;

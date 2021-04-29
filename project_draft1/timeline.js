@@ -1,9 +1,9 @@
 // CONSTANTS ? ARE THEY STILL INCLUDED
-const width = d3.select('#timeline').node().getBoundingClientRect().width;
+const width3 = d3.select('#timeline').node().getBoundingClientRect().width;
 //const width = resizeTo(d3.select("#timeline"));
-console.log("width",width);
-const height = d3.select('#timeline').node().getBoundingClientRect().height;
-console.log("height",height);
+console.log("width3",width3);
+const height3 = d3.select('#timeline').node().getBoundingClientRect().height;
+console.log("height3",height3);
 margin = {top: 40, right:20, bottom:60, left:60}
 
 
@@ -22,12 +22,12 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
 // SCALES
         const xScale = d3.scaleTime()
             .domain(d3.extent(data, d => d.year))
-            .range([margin.left, width - margin.right])
+            .range([margin.left, width3 - margin.right])
         console.log("x", xScale(2020));
 
         const yScale = d3.scaleLinear()
             .domain([d3.min(data, d => Math.min(d.totalt, d.totnb, d.totdm)),  d3.max(data, d => Math.max(d.totalt, d.totnb, d.totdm))]) // d3 max of the col, d3 max of all same for min
-            .range([height - margin.bottom, margin.top])
+            .range([height3 - margin.bottom, margin.top])
         console.log("y", yScale(25000));
 
         a = d3.max(data, d => Math.max(d.totalt, d.totnb, d.totdm));
@@ -55,8 +55,8 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
 // SVG
         svg = d3.select('#timeline')
             .append("svg")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", width3)
+            .attr("height", height3)
             .style('background-color', 'lightgrey');
             //.append("transform","translate(" + 20 +"," + 20 + ")");
 // LINES
@@ -87,7 +87,7 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
 // CALL AXES
         const xAxisGroup = svg.append("g")
             .attr("class", 'xAxis') 
-            .attr("transform", `translate(${0}, ${height - margin.bottom})`) // move to the bottom
+            .attr("transform", `translate(${0}, ${height3 - margin.bottom})`) // move to the bottom
             .call(xAxis)
            
         const yAxisGroup = svg.append("g")
@@ -98,7 +98,7 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
         // add labels - xAxis
         xAxisGroup.append("text")
            .attr("class", 'axis-title')
-           .attr("x", (width/2))
+           .attr("x", (width3/2))
            .attr("y", 40)
            .attr("text-anchor", "end")
            //.style("font-size", "14px")
@@ -109,7 +109,7 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
         yAxisGroup.append("text")
            .attr("class", 'axis-title')
            .attr("x", -50)
-           .attr("y", height / 2)
+           .attr("y", height3 / 2)
            .attr("writing-mode", "vertical-lr")
            .attr("text-anchor", "middle")
            .style("fill", "black")
@@ -117,7 +117,7 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
                      
         // Title
         svg.append("text")
-            .attr("x", (width/2))
+            .attr("x", (width3/2))
             .attr("y", 20)
             .attr("text-anchor", "middle")
             .style("font-size", "16px")
