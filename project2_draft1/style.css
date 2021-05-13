@@ -1,0 +1,38 @@
+body {
+ /* ref: https://fonts.googleapis.com/css2?family=Antonio:wght@200&display=swap' */
+ font-family: 'Antonio', sans-serif;
+ padding: 1em 3em;
+
+}
+
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1em, 2em, 1em;
+    row-gap: 1em;
+    border: 3px solid greenyellow;
+}
+
+#summary{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 3px solid pink;
+}
+
+#mapbox{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 3px solid yellow;
+}
+
+#references{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 3px solid blue;
+}

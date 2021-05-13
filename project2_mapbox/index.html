@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Interactive Data Visualization Tutorial</title>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <!--<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@200&display=swap" rel="stylesheet"> --> 
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body style="background-color:#ffffff;">
+        <header>
+            <h1 style = "font-family:arial narrow;">RISK ASSESSMENT OF OLD LAW TENEMENTS</h1>
+            <h2 style = "font-family:arial narrow;">BROOKLYN, NEW YORK</h2>
+          </header>
+        <div id="main"> </div>
+        <div id="summary">need to write something here</div>
+        <div id='map' style='width: 100%; height: 500px;'>
+        </div>
+        <div class="map-overlay" id="features">
+            <h2>Brooklyn, New York</h2>
+            <div id="pd"><p>Hover Over a Building</p></div>
+        </div>
+        </div>
+        <script> //-73.94565, 40.72164 . -73.9499, 40.626
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZXNpbHZhLTEiLCJhIjoiY2tvOWJweWFkMGo0YTJ4cWh2end2NjFlNyJ9.cFv_HCk8vjYHiZI3zNQrBg';
+        var bounds = [
+        [-73.97,40.7],
+        [-73.92,40.74]
+        ];
+
+        var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/esilva-1/ckom32n1w2ubz19qi0ag5h0mk', // style URL
+        center: [-73.94565, 40.72164], // starting position [lng, lat]
+        zoom: 16.0, // starting zoom
+        maxBounds: bounds // bounds set as max
+        });
+
+        </script>
+         <!-- this is the line that loads in d3 -->
+        <script src="../../lib/d3.js"></script>
+    </body>
+</html>
