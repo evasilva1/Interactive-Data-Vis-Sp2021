@@ -3,14 +3,14 @@
         <meta charset="utf-8">
         <title>Interactive Data Visualization Tutorial</title>
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
-        <!--<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@200&display=swap" rel="stylesheet"> --> 
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
         <link rel="stylesheet" href="./style.css">
     </head>
     <body style="background-color:#ffffff;">
         <header>
-            <h1 style = "font-family:arial narrow;">RISK ASSESSMENT OF OLD LAW TENEMENTS</h1>
-            <h2 style = "font-family:arial narrow;">BROOKLYN, NEW YORK</h2>
+            <h1>RISK ASSESSMENT OF OLD LAW TENEMENTS</h1>
+            <h2>BROOKLYN, NEW YORK</h2>
           </header>
         <div id="main"> </div>
         <div id="summary">need to write something here</div>
@@ -34,10 +34,12 @@
         center: [-73.94565, 40.72164], // starting position [lng, lat]
         zoom: 16.0, // starting zoom
         maxBounds: bounds // bounds set as max
+        //place this in js and add src at the bottom
         });
 
         </script>
          <!-- this is the line that loads in d3 -->
         <script src="../../lib/d3.js"></script>
+    
     </body>
 </html>

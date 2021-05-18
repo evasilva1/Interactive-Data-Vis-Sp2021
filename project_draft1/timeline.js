@@ -6,6 +6,7 @@ const height3 = d3.select('#timeline').node().getBoundingClientRect().height;
 console.log("height3",height3);
 margin = {top: 40, right:20, bottom:60, left:60}
 
+let tooltip;
 
 // LOAD DATA
 d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
@@ -123,5 +124,23 @@ d3.csv('../project_draft1/data/DummyPermitRev.csv', (d) => {
             .style("font-size", "16px")
             .style("font-weight", "bold")
             .text("Permits Issued")
+
+        let mouseg = svg.append("g")
+            .attr("class","mouse-over-effects");
+
+        mouseg.append("path")
+            .attr("class","mouse-line")
+            .style("stroke","black")
+            .style("stroke-width","1px")
+            .style("opacity","0");
+
+        let lines = document.getElementsByClassName('nLine dLine aLine');
+
+        let mousePerLine = mouseg.selectAll('.mouse-per-line')
+            .data([data])
+            .enter()
+            .append("g")
+            .attr("class","mouse-per-line");
+        
             
     });
